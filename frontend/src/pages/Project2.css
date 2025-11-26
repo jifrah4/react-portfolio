@@ -1,47 +1,40 @@
-/* src/pages/Project2.css */
-.project-wrapper {
-  padding: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
+.projects-section {
+  padding: 2rem 4rem;
 }
 
-.task-form {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+.projects-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
-.task-form input {
-  flex: 1;
-  padding: 0.5rem;
-  font-size: 1rem;
-}
-
-.task-form button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-}
-
-.task-list {
-  list-style: none;
-  padding: 0;
-}
-
-.task-list li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.project-card {
   background: #f9f9f9;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 4px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid #ddd;
 }
 
-.task-list li.done {
-  text-decoration: line-through;
-  opacity: 0.6;
+.project-image {
+  display: block;
+  max-width: 80%;
+  margin: 1rem auto;
+  border-radius: 8px;
 }
 
-.task-buttons button {
-  margin-left: 0.5rem;
+.project-btn {
+  display: inline-block;
+  background: #004aad;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.project-btn:hover {
+  background: #00337a;
 }

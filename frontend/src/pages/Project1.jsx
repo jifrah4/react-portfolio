@@ -1,75 +1,60 @@
-// src/pages/Project1.jsx
-import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-} from 'chart.js';
-import { Line, Bar } from 'react-chartjs-2';
-import './Project1.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import projects from "../data/projects"; // Correct import
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-function Project1() {
-  const lineData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-    datasets: [
-      {
-        label: 'Goals Scored',
-        data: [12, 19, 3, 5, 2],
-        borderColor: 'rgba(75,192,192,1)',
-        backgroundColor: 'rgba(75,192,192,0.2)',
-      },
-    ],
-  };
-
-  const barData = {
-    labels: ['Basketball', 'Soccer', 'Football'],
-    datasets: [
-      {
-        label: 'Games Played',
-        data: [8, 15, 10],
-        backgroundColor: ['#4bc0c0', '#ff6384', '#36a2eb'],
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: { position: 'top' },
-      title: { display: true, text: 'Sports Tracker Stats' },
-    },
-  };
-
+function Projects() {
   return (
-    <div className="project-wrapper">
-      <h2>Sports Tracker</h2>
-      <div className="charts-container">
-        <div className="chart-box">
-          <Line data={lineData} options={options} />
+    <section className="projects-section">
+      <h1 className="projects-title">My Projects</h1>
+
+      {projects.map((project) => (
+        <div key={project.id} className="project-card">
+          <h2>{project.title}</h2>
+
+          <p>{project.description}</p>
+
+          {project.technologies && (
+            <p>
+              <strong>Technologies:</strong> {project.technologies}
+            </p>
+          )}
+
+          {project.role && (
+            <p>
+              <strong>My Role:</strong> {project.role}
+            </p>
+          )}
+
+          {project.github && (
+            <p>
+              <strong>GitHub Repository: </strong>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+              </a>
+            </p>
+          )}
+
+          {project.image && (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="project-image"
+            />
+          )}
+
+          {project.link && (
+            <Link to={project.link} className="project-btn">
+              View Project
+            </Link>
+          )}
         </div>
-        <div className="chart-box">
-          <Bar data={barData} options={options} />
-        </div>
-      </div>
-    </div>
+      ))}
+    </section>
   );
 }
 
-export default Project1;
+export default Projects;

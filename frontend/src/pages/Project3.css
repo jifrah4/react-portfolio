@@ -1,28 +1,40 @@
-/* src/pages/Project3.css */
-.project-wrapper {
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
+.projects-section {
+  padding: 2rem 4rem;
+}
+
+.projects-title {
   text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
-.project-wrapper ul {
-  text-align: left;
+.project-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid #ddd;
+}
+
+.project-image {
+  display: block;
+  max-width: 80%;
   margin: 1rem auto;
-  max-width: 400px;
+  border-radius: 8px;
 }
 
-.button {
+.project-btn {
   display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.5rem 1.5rem;
-  background: #007acc;
-  color: #fff;
-  border-radius: 4px;
+  background: #004aad;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
   text-decoration: none;
-  transition: background 0.2s;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
-.button:hover {
-  background: #005fa3;
+.project-btn:hover {
+  background: #00337a;
 }

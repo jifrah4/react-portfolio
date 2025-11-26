@@ -1,68 +1,32 @@
-// src/pages/Project2.jsx
-import React, { useState } from 'react';
-import './Project2.css';
+import React from "react";
+import "./Project2.css";
 
 function Project2() {
-  const [tasks, setTasks] = useState([]);
-  const [title, setTitle] = useState('');
-  const [time, setTime] = useState('');
-
-  const addTask = e => {
-    e.preventDefault();
-    if (!title || !time) return;
-    setTasks([
-      ...tasks,
-      { id: Date.now(), title, time, done: false }
-    ]);
-    setTitle('');
-    setTime('');
-  };
-
-  const toggleDone = id => {
-    setTasks(tasks.map(t =>
-      t.id === id ? { ...t, done: !t.done } : t
-    ));
-  };
-
-  const removeTask = id => {
-    setTasks(tasks.filter(t => t.id !== id));
-  };
-
   return (
-    <div className="project-wrapper">
-      <h2>Dad Scheduler</h2>
+    <section className="project-container">
+      <h1>Project 2 – Resume Builder Application</h1>
 
-      <form className="task-form" onSubmit={addTask}>
-        <input
-          type="text"
-          placeholder="Task Title"
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-        />
-        <input
-          type="time"
-          value={time}
-          onChange={e => setTime(e.target.value)}
-        />
-        <button type="submit">Add Task</button>
-      </form>
+      <p>
+        A web-based resume builder that allows users to enter personal, education,
+        and professional experience to dynamically create a professional resume.
+        The application uses React state management and form validation to ensure
+        accurate input and a downloadable result.
+      </p>
 
-      <ul className="task-list">
-        {tasks.map(task => (
-          <li key={task.id} className={task.done ? 'done' : ''}>
-            <span>{task.time}</span> – <span>{task.title}</span>
-            <div className="task-buttons">
-              <button onClick={() => toggleDone(task.id)}>
-                {task.done ? 'Undo' : 'Done'}
-              </button>
-              <button onClick={() => removeTask(task.id)}>
-                Remove
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <p><b>Technologies:</b> React, JavaScript, CSS3, React Hooks</p>
+
+      <p><b>My Role:</b> Developed the UI layout and implemented state logic
+        for real-time preview. I also handled styling and responsiveness for
+        mobile and desktop users.
+      </p>
+
+      <p>
+        <b>GitHub Repository: </b>
+        <a href="https://github.com/jifrah4/resume-builder" target="_blank" rel="noreferrer">
+          View on GitHub
+        </a>
+      </p>
+    </section>
   );
 }
 

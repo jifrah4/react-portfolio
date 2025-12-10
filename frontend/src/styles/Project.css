@@ -1,0 +1,145 @@
+.project-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  text-align: left;
+  background: white;
+  border-radius: 8px;
+}
+
+.project-page h1 {
+  color: #0d47a1;
+  text-align: center;
+}
+
+.project-details {
+  padding-left: 20px;
+  margin: 15px 0;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0d47a1;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Project Cards on Projects Page */
+.projects-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+.projects-page ul li {
+  margin: 10px 0;
+}
+
+.projects-page ul li a {
+  color: #0d47a1;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.projects-page ul li a:hover {
+  text-decoration: underline;
+}
+.page-container {
+  padding: 30px;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.project-item {
+  margin: 15px 0;
+}
+
+.project-link {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0a4ecf;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+  color: #063a9a;
+}
+.resume-builder-container {
+  padding: 30px;
+}
+
+.template-selector {
+  margin-bottom: 20px;
+}
+
+.resume-builder-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.resume-form {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.resume-form input,
+.resume-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.pdf-btn {
+  width: 100%;
+  padding: 12px;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.resume-preview {
+  flex: 1;
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  min-height: 600px;
+  border: 1px solid #ddd;
+}
+
+/* ------- Templates ------- */
+
+/* Modern */
+.resume-preview.modern {
+  font-family: "Poppins", sans-serif;
+  border-left: 6px solid #4a90e2;
+}
+
+/* Simple */
+.resume-preview.simple {
+  font-family: Arial, sans-serif;
+  border: 2px dashed #999;
+}
+
+/* Professional */
+.resume-preview.professional {
+  font-family: "Times New Roman", serif;
+  border: 4px solid #222;
+  padding: 35px;
+}

@@ -1,112 +1,86 @@
 // src/pages/Contact.jsx
-/**
- * File: Contact.jsx
- * Student: Jesse ifrah
- * Student ID: 301494502
- * Date: 2025-09-23
- */
+import React, { useState } from "react";
+import axios from "axios";
+import "../styles/Contact.css";
 
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Contact.css';
+const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+  const [isError, setIsError] = useState(false);
 
-function Contact() {
-  // SECTION: State Hooks for Form Fields
-  const [firstName, setFirstName] = useState('');
-  const [lastName,  setLastName]  = useState('');
-  const [email,     setEmail]     = useState('');
-  const [phone,     setPhone]     = useState('');
-  const [message,   setMessage]   = useState('');
+  // ✅ Use Render backend in production
+  const API_BASE_URL =
+    process.env.NODE_ENV === "production"
+      ? "https://react-portfolio-qoaa.onrender.com"
+      : "http://localhost:5001";
 
-  const navigate = useNavigate();
-
-  // SECTION: Form Submission Handler
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus("");
+    setIsError(false);
 
-    // For now, we just log form data
-    console.log({
-      firstName,
-      lastName,
-      email,
-      phone,
-      message
-    });
+    try {
+      const res = await axios.post(`${API_BASE_URL}/api/contacts`, {
+  name,
+  email,
+  message,
+});
 
-    // Redirect back to Home page
-    navigate('/');
+      console.log(res.data);
+      setStatus("Message sent successfully!");
+      setIsError(false);
+
+      // clear form
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error(error);
+      setStatus("Error sending message. Please try again later.");
+      setIsError(true);
+    }
   };
 
   return (
-    <div className="contact-page">
-      {/* SECTION: Contact Info Panel */}
-      <aside className="contact-info">
-        <h2>Contact Information</h2>
-        <p><strong>Email:</strong> jesseifrah08@gmail.com</p>
-        <p><strong>Phone:</strong> (647) 553-6494</p>
-        <p><strong>Location:</strong> Vaughan, ON, Canada</p>
-      </aside>
+    <div className="contact-container">
+      <h2>Contact Me</h2>
 
-      {/* SECTION: Contact Form */}
-      <section className="contact-form-wrapper">
-        <h2>Send Me a Message</h2>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="form-row">
-            <label htmlFor="firstName">First Name</label>
-            <input
-              id="firstName"
-              type="text"
-              value={firstName}
-              onChange={e => setFirstName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              id="lastName"
-              type="text"
-              value={lastName}
-              onChange={e => setLastName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="email">Email Address</label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="phone">Contact Number</label>
-            <input
-              id="phone"
-              type="tel"
-              value={phone}
-              onChange={e => setPhone(e.target.value)}
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              rows="4"
-              value={message}
-              onChange={e => setMessage(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit" className="submit-button">
-            Send Message
-          </button>
-        </form>
-      </section>
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Your Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+
+        <input
+          type="email"
+          placeholder="Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <textarea
+          placeholder="Your Message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+        ></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      {status && (
+        <p className={`status ${isError ? "status-error" : "status-success"}`}>
+          {status}
+        </p>
+      )}
     </div>
   );
-}
+};
 
 export default Contact;

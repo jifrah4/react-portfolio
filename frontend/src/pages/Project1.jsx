@@ -1,60 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import projects from "../data/projects"; // Correct import
+import "../styles/Project.css";
 
-function Projects() {
+const Project1 = () => {
   return (
-    <section className="projects-section">
-      <h1 className="projects-title">My Projects</h1>
+    <div className="project-page">
+      <h1>Project 1 – PikaPika E-Commerce</h1>
 
-      {projects.map((project) => (
-        <div key={project.id} className="project-card">
-          <h2>{project.title}</h2>
+      <p>
+        A full-stack e-commerce clothing store with React, Node.js, Express, and MongoDB.
+        Includes product management, authentication, cart system, and full CRUD operations.
+      </p>
 
-          <p>{project.description}</p>
+      <ul className="project-details">
+        <li>⚡ MERN Stack – MongoDB, Express, React, Node.js</li>
+        <li>📦 Product CRUD operations (add / edit / delete)</li>
+        <li>🔐 JWT-based authentication (sign up / sign in)</li>
+        <li>🛒 Fully functional cart + checkout UI</li>
+        <li>🚀 Deployed backend + frontend on Render</li>
+      </ul>
 
-          {project.technologies && (
-            <p>
-              <strong>Technologies:</strong> {project.technologies}
-            </p>
-          )}
-
-          {project.role && (
-            <p>
-              <strong>My Role:</strong> {project.role}
-            </p>
-          )}
-
-          {project.github && (
-            <p>
-              <strong>GitHub Repository: </strong>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on GitHub
-              </a>
-            </p>
-          )}
-
-          {project.image && (
-            <img
-              src={project.image}
-              alt={project.title}
-              className="project-image"
-            />
-          )}
-
-          {project.link && (
-            <Link to={project.link} className="project-btn">
-              View Project
-            </Link>
-          )}
-        </div>
-      ))}
-    </section>
+      <a
+        href="https://comm229-deployment.onrender.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="project-link"
+      >
+        👉 Visit Live Project
+      </a>
+    </div>
   );
-}
+};
 
-export default Projects;
+export default Project1;

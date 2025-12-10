@@ -1,26 +1,12 @@
-import React from 'react';
-import webIcon from '../assets/web-icon.webp';
-import mobileIcon from '../assets/mobile-icon.webp';
+const Services = () => (
+  <div className="page-container">
+    <h1>Services</h1>
 
-function Services() {
-  const services = [
-    { icon: webIcon, title: 'Web Development' },
-    { icon: mobileIcon, title: 'Mobile Apps' },
-  ];
-
-  return (
-    <section className="services-page">
-      <h1>Services</h1>
-      <div className="services-list">
-        {services.map((s, i) => (
-          <div key={i} className="service-item">
-            <img src={s.icon} alt={s.title} width="50" />
-            <h2>{s.title}</h2>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
+    <ul className="project-details">
+      <li>💻 Web Development</li>
+      <li>📱 Mobile App Development</li>
+      <li>☁ Cloud Deployment</li>
+    </ul>
+  </div>
+);
 export default Services;

@@ -1,24 +1,10 @@
 import express from "express";
+import { submitContact } from "../controllers/contactController.js";
+
 const router = express.Router();
-import {
-  getContacts,
-  createContact,
-  updateContact,
-  deleteContact,
-} from "../controllers/contactController.js";
-import { auth, requireAdmin } from "../middleware/auth.js";
 
-
-// GET (logged-in users only)
-router.get("/", auth, getContacts);
-
-// POST (admin only)
-router.post("/", auth, createContact);
-
-// PUT (admin only)
-router.put("/:id", auth, updateContact);
-
-// DELETE (admin only)
-router.delete("/:id", auth, deleteContact);
+// POST /api/contacts
+router.post("/", submitContact);
 
 export default router;
+

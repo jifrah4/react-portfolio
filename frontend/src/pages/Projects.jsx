@@ -1,60 +1,47 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import projects from "../data/projects"; // Correct import
+import "../styles/Project.css";
 
-function Projects() {
+const Projects = () => {
   return (
-    <section className="projects-section">
-      <h1 className="projects-title">My Projects</h1>
+    <div className="page-container">
+      <h1>My Projects</h1>
 
-      {projects.map((project) => (
-        <div key={project.id} className="project-card">
-          <h2>{project.title}</h2>
+      <ul className="project-list">
 
-          <p>{project.description}</p>
+        {/* Project 1 */}
+        <li className="project-item">
+          <a
+            href="https://comm229-deployment.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link"
+          >
+            Project 1 — PikaPika E-Commerce
+          </a>
+        </li>
 
-          {project.technologies && (
-            <p>
-              <strong>Technologies:</strong> {project.technologies}
-            </p>
-          )}
+        {/* Project 2 */}
+        <li className="project-item">
+          <a href="#/project2" className="project-link">
+            Project 2 — Resume Builder
+          </a>
+        </li>
 
-          {project.role && (
-            <p>
-              <strong>My Role:</strong> {project.role}
-            </p>
-          )}
+        {/* Project 3 */}
+        <li className="project-item">
+          <a
+            href="https://jifrah4.github.io/react-portfolio/#/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link"
+          >
+            Project 3 — Portfolio Website
+          </a>
+        </li>
 
-          {project.github && (
-            <p>
-              <strong>GitHub Repository: </strong>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on GitHub
-              </a>
-            </p>
-          )}
-
-          {project.image && (
-            <img
-              src={project.image}
-              alt={project.title}
-              className="project-image"
-            />
-          )}
-
-          {project.link && (
-            <Link to={project.link} className="project-btn">
-              View Project
-            </Link>
-          )}
-        </div>
-      ))}
-    </section>
+      </ul>
+    </div>
   );
-}
+};
 
 export default Projects;

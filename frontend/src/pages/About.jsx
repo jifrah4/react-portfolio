@@ -1,16 +1,20 @@
-import React from 'react';
-import profilePic from '../assets/profilepic.jpg';
-import resume from '../assets/resume.pdf';
 
-function About() {
+import profilePic from "../assets/profilepic.jpg";
+import resumePDF from "../assets/resume.pdf";
+
+const About = () => {
   return (
-    <section style={{ padding: '2rem' }}>
+    <div className="page-container">
       <h1>About Me</h1>
-      <img src={profilePic} alt="Jesse Ifrah" style={{ width: 200, borderRadius: 8 }} />
-      <p>I’m passionate about web development, sports, and fatherhood. I strive to build clean, accessible applications that make life easier.</p>
-      <a href={resume} target="_blank" rel="noopener noreferrer">Download Resume</a>
-    </section>
-  );
-}
 
+      <img src={profilePic} alt="Profile" className="profile-img" />
+
+      <p>I am a software developer specializing in full-stack JavaScript, MERN, and modern web technologies.</p>
+
+      <a href={resumePDF} target="_blank" className="resume-button">
+        📄 Download Resume
+      </a>
+    </div>
+  );
+};
 export default About;

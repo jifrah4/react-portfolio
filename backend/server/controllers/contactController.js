@@ -1,57 +1,29 @@
-import Contact from "../models/Contact.js";
+import ContactMessage from "../models/contactModel.js";
 
-// GET all contacts
-export const getContacts = async (req, res) => {
-  try {
-    const contacts = await Contact.find().sort({ createdAt: -1 });
-    res.json(contacts);
-  } catch (err) {
-    console.error("Error fetching contacts:", err);
-    res.status(500).json({ message: "Server error" });
-  }
-};
+export const submitContact = async (req, res) => {
+  console.log("🔥 Contact request received:", req.body);
 
-// CREATE contact
-export const createContact = async (req, res) => {
   try {
-    const contact = await Contact.create(req.body);
-    res.status(201).json(contact);
-  } catch (err) {
-    console.error("Error creating contact:", err);
-    res.status(500).json({ message: "Server error" });
-  }
-};
+    const { name, email, message } = req.body;
 
-// UPDATE contact
-export const updateContact = async (req, res) => {
-  try {
-    const contact = await Contact.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+    if (!name || !email || !message) {
+      return res.status(400).json({ error: "All fields are required." });
+    }
+
+    const newMessage = new ContactMessage({
+      name,
+      email,
+      message,
+      createdAt: new Date()
     });
 
-    if (!contact) {
-      return res.status(404).json({ message: "Contact not found" });
-    }
+    await newMessage.save();
+    console.log("📩 Message saved to MongoDB!");
 
-    res.json(contact);
-  } catch (err) {
-    console.error("Error updating contact:", err);
-    res.status(500).json({ message: "Server error" });
-  }
-};
+    res.status(201).json({ success: true, message: "Message sent successfully!" });
 
-// DELETE contact
-export const deleteContact = async (req, res) => {
-  try {
-    const contact = await Contact.findByIdAndDelete(req.params.id);
-
-    if (!contact) {
-      return res.status(404).json({ message: "Contact not found" });
-    }
-
-    res.json({ message: "Contact deleted" });
-  } catch (err) {
-    console.error("Error deleting contact:", err);
-    res.status(500).json({ message: "Server error" });
+  } catch (error) {
+    console.error("❌ Error saving contact message:", error);
+    res.status(500).json({ error: "Server error" });
   }
 };

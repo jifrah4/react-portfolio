@@ -1,40 +1,46 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Project2 from "./pages/Project2";
+import Education from "./pages/Education";
+import Services from "./pages/Services";
+import Contact from "./pages/Contact";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
+import "./styles/App.css";
+import AdminMessages from "./pages/AdminMessages";
+import ResetPassword from "./pages/ResetPassword";
+import Dashboard from "./pages/Dashboard";
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Education from './pages/Education';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
 
-import Project1 from './pages/Project1';
-import Project2 from './pages/Project2';
-import Project3 from './pages/Project3';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <main>
+    <Router>
+      <Header />
+      <div className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/education" element={<Education />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/project1" element={<Project1 />} />
           <Route path="/project2" element={<Project2 />} />
-          <Route path="/project3" element={<Project3 />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/admin/messages" element={<AdminMessages />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
-      </main>
+      </div>
       <Footer />
-    </BrowserRouter>
+    </Router>
   );
 }
 

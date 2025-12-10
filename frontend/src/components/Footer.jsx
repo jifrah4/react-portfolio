@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
+import "./Footer.css";
 
-function Footer() {
-  return (
-    <footer style={{ textAlign: 'center', padding: '1rem', background: '#eee' }}>
-      <p>© {new Date().getFullYear()} Jesse Ifrah. All rights reserved.</p>
-    </footer>
-  );
-}
-
+const Footer = () => (
+  <footer className="footer">
+    © {new Date().getFullYear()} Jesse Ifrah. All rights reserved.
+  </footer>
+);
 export default Footer;

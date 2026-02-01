@@ -5,10 +5,10 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 
-import userRoutes from "./userRoutes.js";
-import contactRoutes from "./contactRoutes.js";
-import projectRoutes from "./projectRoutes.js";
-import qualificationRoutes from "./qualificationRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
+import projectRoutes from "./routes/projectRoutes.js";
+import qualificationRoutes from "./routes/qualificationRoutes.js";
 
 // ============================
 // Load Environment Variables

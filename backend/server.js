@@ -3,7 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
-import connectDB from "./db.js";
+import connectDB from "./config/db.js";
 
 import userRoutes from "./userRoutes.js";
 import contactRoutes from "./contactRoutes.js";

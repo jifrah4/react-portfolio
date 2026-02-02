@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-portfolio/static/css/main.2eb6c1fc.css",
-    "main.js": "/react-portfolio/static/js/main.67c04faa.js",
+    "main.css": "/react-portfolio/static/css/main.0511c759.css",
+    "main.js": "/react-portfolio/static/js/main.a183f78d.js",
     "static/js/977.405355fc.chunk.js": "/react-portfolio/static/js/977.405355fc.chunk.js",
     "static/js/455.9e9dfa13.chunk.js": "/react-portfolio/static/js/455.9e9dfa13.chunk.js",
     "static/media/profilepic.jpg": "/react-portfolio/static/media/profilepic.a1c47c8b49db4dfd0907.jpg",
     "static/media/logo.png": "/react-portfolio/static/media/logo.c554f66d99cdc8ab10c5.png",
     "static/media/Jesse_Ifrah_TempStars_Resume_Final.docx": "/react-portfolio/static/media/Jesse_Ifrah_TempStars_Resume_Final.c7c514049fd0cd761f59.docx",
     "index.html": "/react-portfolio/index.html",
-    "main.2eb6c1fc.css.map": "/react-portfolio/static/css/main.2eb6c1fc.css.map",
-    "main.67c04faa.js.map": "/react-portfolio/static/js/main.67c04faa.js.map",
+    "main.0511c759.css.map": "/react-portfolio/static/css/main.0511c759.css.map",
+    "main.a183f78d.js.map": "/react-portfolio/static/js/main.a183f78d.js.map",
     "977.405355fc.chunk.js.map": "/react-portfolio/static/js/977.405355fc.chunk.js.map",
     "455.9e9dfa13.chunk.js.map": "/react-portfolio/static/js/455.9e9dfa13.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2eb6c1fc.css",
-    "static/js/main.67c04faa.js"
+    "static/css/main.0511c759.css",
+    "static/js/main.a183f78d.js"
   ]
 }
